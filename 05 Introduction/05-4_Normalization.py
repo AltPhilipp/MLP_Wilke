@@ -10,6 +10,8 @@ import sklearn.preprocessing as pre
 import pandas as pd
 import matplotlib.pyplot as plt
 
+
+
 ##### Load an integrated data set
 
 # We load the iris dataset, which is included in scikit-learn.
@@ -25,10 +27,8 @@ type(iris)
 #   - Attribute Access: You can access the values using dot notation (e.g., bunch.key)
 #     in addition to the standard dictionary access (e.g., bunch['key']).
 
-# Print all keys of the iris bunch
-keys = iris.keys()
-for name in keys:
-    print(name)
+# Inspect the keys of the iris bunch
+iris.keys()
 
 # The key „data“ stores the input features as a numpy array:
 print(iris.data)
@@ -69,6 +69,8 @@ min_max.fit(X)
 X_min_max = min_max.transform(X)
 
 
+
+
 ##### Mu-Sigma method:
 
 # We use the StandardScaler() from the preprocessing module of sklearn.
@@ -87,6 +89,8 @@ mu_sigma.fit(X)
 #   3. Transform
 #       Scale the features in X accordingly.
 X_mu_sigma = mu_sigma.transform(X)
+
+
 
 
 ##### Check if it worked

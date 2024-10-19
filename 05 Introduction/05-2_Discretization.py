@@ -85,16 +85,19 @@ X_efb = efb.transform(X)
 
 
 
-##### Are the results really categorical??
+##### Are the results on a categorical scale?
 
-# The KBinsDiscretizer encodes the bin identifiers as floats 0.,1.,2.
-# This is *discrete*, but it is not *categorical* !!
 
-# Let's double-check that:
+# The KBinsDiscretizer encodes the bin identifiers as floats 0.,1.,2.:
 type(X_ewb) # numpy.ndarray
 X_ewb.dtype # dtype('float64')
+# This means that the data type is still numerical.
+# We *discretized* the numerical values, but we did not make them *categorical*!
 
-# To make the discrete bin identifiers categorical, we can convert to string:
+
+##### How to make them categorical?
+
+# If we want to make the discrete bin identifiers categorical, we can convert them to string:
 X_ewb_cat = X_ewb.astype(str)
 
 # If we want nicer strings, we can first convert to integer, then to string:
