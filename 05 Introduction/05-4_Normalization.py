@@ -30,7 +30,10 @@ type(iris)
 # Inspect the keys of the iris bunch
 iris.keys()
 
-# The key „data“ stores the input features as a numpy array:
+# The key 'DESCR' stores a description of the data set (the data dictionary):
+# print(iris.DESCR)
+
+# The key 'data' stores the input features as a numpy array:
 print(iris.data)
 type(iris.data)
 

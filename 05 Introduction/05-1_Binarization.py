@@ -10,7 +10,7 @@ import pandas as pd
 
 ##### Import the census data set
 
-#  Note: Please download 'census.data' from Moodle!
+#  Note: Please download 'census.data'!
 
 # We import the census data set using pd.read_csv()
 #   - pd.read_csv() imports a .csv file as a data frame
@@ -35,7 +35,7 @@ my_data = data[['age', 'workclass', 'gender', 'income']]
 # Display the structure of the data frame to see the data types
 my_data.info()
     # - 'object' means categorical.
-    # - in64 means numerical
+    # - int64 means numerical
     # Note: In Pandas, 'object' is a catch-all for any data type that doesn't fit into the standard numeric types.
 
 # Display the summary statistics of the columns
@@ -57,7 +57,7 @@ my_data['income'].unique()
 
 ##### Binarize the categorical variables
 #   Remember: Binarization (One-Hot-Encoding) transforms categorical variables to numerical variables.
-#   We use the pandas function 'get_dummies()' to do that. It leaves the numerical variables untouched
+#   We use the pandas function 'get_dummies()' to do that.
 #   Remark: Binarized variables are often also called 'dummy variables'.
 my_data_num = pd.get_dummies(my_data)
 
@@ -72,7 +72,7 @@ my_data_num.info()
 
 # Inspect the new dummy variables again:
 my_data_num.info()
-    # 'age' is untouched
+    # 'age' is untouched, because it was already numerical
     # workclass: 9 dummies
     # gender: 2 dummies
     # income: 2 dummies
