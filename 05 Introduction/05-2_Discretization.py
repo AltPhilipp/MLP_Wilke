@@ -92,10 +92,32 @@ X_efb = efb.transform(X)
 type(X_ewb) # numpy.ndarray
 X_ewb.dtype # dtype('float64')
 # This means that the data type is still numerical.
-# We *discretized* the numerical values, but we did not make them *categorical*!
+# The KBins*Discretizer* only *discretizes* the numerical values, it does not make them categorical!
+
+# Note:
+#   - Discrete variables with a numerical data type can be both, categorical scale or numerical scale!
+#   - Which of them applies depends on the semantic of the attributes, because the semantic tells us
+#     which mathematical operations make sense.
+#   - Example: 'age'
+#       - The data type of 'age' (measured in years) is integer, thus numerical.
+#       - The scale level of 'age' is ratio, because it makes sense to calculate age differences and fractions.
+#         Thus, the scale level is also numerical.
+#   - Example: 'age class (EWB)'
+#       - Assume we have 10 age classes of equal length.
+#       - Assume the classes are encoded as integers: 1 = [1,10], 2 = [11,20], 3 = [21-30], ..., 10=[91,100]
+#       - The data type of 'age class (EWB)' is integer, thus numerical.
+#       - The scale level of 'age class (EWB)' is interval, because it makes sense calculate differences of age classes.
+#         Thus, the scale level is also numerical.
+#   - Example: 'age class (EFB)'
+#       - Assume we have 4 age classes of equal frequency and unequal length.
+#       - Assume the classes are encoded as integers: 1 = [1,20], 2 = [21,25], 3 = [25-30], 4=[41-100].
+#       - The data type of 'age class (EFB)' is integer, thus numerical.
+#       - The scale level of 'age class (EFB)' is ordinal: it does NOT make sense to calculate differences of age classes,
+#         but it makes sense to put them into the above order.
+#         Thus, the scale level is categorical.
 
 
-##### How to make them categorical?
+##### How to make discrete variables of a numerical data type categorical?
 
 # If we want to make the discrete bin identifiers categorical, we can convert them to string:
 X_ewb_cat = X_ewb.astype(str)
