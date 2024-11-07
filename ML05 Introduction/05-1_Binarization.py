@@ -16,7 +16,7 @@ import pandas as pd
 #   - pd.read_csv() imports a .csv file as a data frame
 #   - 'census.data' does not have a header that contains the column names. So we set header=None.
 #   - With names = ... we specify the column names manually.
-data = pd.read_csv('census.data', header=None, index_col=False,
+data = pd.read_csv('C:/Users/Philipp/Documents/PyCharm/MLP_Wilke/Data/census.data', header=None, index_col=False,
                    names=['age', 'workclass', 'fnlwgt',
                             'education', 'education-num', 'marital- status', 'occupation',
                             'relationship', 'race', 'gender', 'capital-gain',
@@ -33,17 +33,20 @@ my_data = data[['age', 'workclass', 'gender', 'income']]
 ##### Check the data types of the 4 variables
 
 # Display the structure of the data frame to see the data types
+print("Data Types:")
 my_data.info()
     # - 'object' means categorical.
     # - int64 means numerical
     # Note: In Pandas, 'object' is a catch-all for any data type that doesn't fit into the standard numeric types.
 
 # Display the summary statistics of the columns
+print("Describe Data:")
 my_data.describe()
     # Notice that only 'age' is displayed!
     # The reason is that 'describe()' summarizes only numerical variables by default.
 
 #   To include a summary of the categorical variables, you must set the parameter include='all':
+print("Describe All:")
 my_data.describe(include='all')
     # 'unique' shows the number of unique values of a categorical variable.
     # E.g., income has 2 unique values
