@@ -13,11 +13,11 @@ import pandas as pd
 ##### Generate a synthetic data set
 
 # ds.make_classification() generates a synthetic data for a classification task
-#   - n_samples = 10 data objects
-#   - n_features = 3 features
-#   - n_redudandant = 0 (no features should be redundant)
+#   - n_samples = 10 data objects (rows)
+#   - n_features = 3 features (columns)
+#   - n_redudandant = 0 (no features should be redundant, e.g., shouldn't repeat a number)
 #   - n_classes = 2 (the target variable should have 2 classes)
-#   - The function returns the input features X and the target variable y.
+#   - The function returns the input features X and the target variable y as matrices.
 X, y = ds.make_classification(n_samples=10, n_features=3, n_redundant=0, n_classes=2)
 
 # Print the input feature X
